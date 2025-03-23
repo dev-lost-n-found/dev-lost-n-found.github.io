@@ -6,84 +6,10 @@
     <title>Announcements - Pet Finder Helper</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .announcements-content {
-            padding: 8rem 0 4rem;
-            background-color: var(--white);
-        }
-        .announcements-section {
-            margin-bottom: 3rem;
-        }
-        .announcements-section h2 {
-            color: var(--green);
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-        }
-        .announcement-card {
-            background-color: var(--light-green);
-            border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-        .announcement-card:hover {
-            transform: translateY(-5px);
-        }
-        .announcement-card h3 {
-            color: var(--black);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        .announcement-card .date {
-            color: var(--dark-gray);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-        .announcement-card p {
-            color: var(--dark-gray);
-            margin-bottom: 1rem;
-        }
-        .announcement-card .read-more {
-            color: var(--green);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .announcement-card .read-more:hover {
-            color: var(--orange);
-        }
-        .announcement-tag {
-            display: inline-block;
-            padding: 0.3rem 0.8rem;
-            background-color: var(--green);
-            color: var(--white);
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-bottom: 1rem;
-        }
-    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-paw"></i>
-                <span>Pet Finder Helper</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#features">Features</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#team">Team</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
+    <!-- Header Component -->
+    <div id="header-component"></div>
     <!-- Announcements Content -->
     <main class="announcements-content">
         <div class="container">
@@ -130,39 +56,12 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Pet Finder Helper</h3>
-                    <p>Making pet finding easier and faster</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#features">Features</a></li>
-                        <li><a href="index.html#about">About</a></li>
-                        <li><a href="index.html#team">Team</a></li>
-                        <li><a href="index.html#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Follow Us</h3>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; Pet Finder Helper. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-    <script src="script.js"></script>
+    <!-- Footer Component -->
+    <div id="footer-component"></div>
+
+    <!-- Scripts -->
+    <script src="js/components.js"></script>
+    <script src="js/script.js"></script>
 </body>
-</html> 
+
+</html>
