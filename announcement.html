@@ -3,9 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Announcemnet</title>
+    <title>Announcements - Pet Finder Helper</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .announcements-content {
+            padding: 8rem 0 4rem;
+            background-color: var(--white);
+        }
+        .announcements-section {
+            margin-bottom: 3rem;
+        }
+        .announcements-section h2 {
+            color: var(--green);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        .announcement-card {
+            background-color: var(--light-green);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        .announcement-card:hover {
+            transform: translateY(-5px);
+        }
+        .announcement-card h3 {
+            color: var(--black);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        .announcement-card .date {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .announcement-card p {
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+        }
+        .announcement-card .read-more {
+            color: var(--green);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .announcement-card .read-more:hover {
+            color: var(--orange);
+        }
+        .announcement-tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: var(--green);
+            color: var(--white);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+    </style>
 </head>
 <body>
-    <h1>For Announcemnet</h1>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-paw"></i>
+                <span>Pet Finder Helper</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#team">Team</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Announcements Content -->
+    <main class="announcements-content">
+        <div class="container">
+            <div class="announcements-section">
+                <h1>Latest Announcements</h1>
+                <p>Stay updated with the latest news and updates from Pet Finder Helper.</p>
+
+                <!-- Latest Update -->
+                <div class="announcement-card">
+                    <span class="announcement-tag">New Feature</span>
+                    <h3>GPS Tracking Enhancement</h3>
+                    <div class="date">March 15, 2024</div>
+                    <p>We've improved our GPS tracking system to provide more accurate location updates for your pets. The new feature includes real-time location sharing and improved battery efficiency.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Community Update -->
+                <div class="announcement-card">
+                    <span class="announcement-tag">Community</span>
+                    <h3>Community Success Story</h3>
+                    <div class="date">March 10, 2024</div>
+                    <p>Thanks to our community's efforts, we've successfully reunited over 1000 pets with their families this month. Join our growing community of pet lovers and make a difference!</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- App Update -->
+                <div class="announcement-card">
+                    <span class="announcement-tag">Update</span>
+                    <h3>App Version 2.0 Released</h3>
+                    <div class="date">March 5, 2024</div>
+                    <p>We're excited to announce the release of Pet Finder Helper 2.0! This major update includes improved UI, faster performance, and new features to help you find your lost pets more effectively.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Partnership -->
+                <div class="announcement-card">
+                    <span class="announcement-tag">Partnership</span>
+                    <h3>New Partnership with Local Shelters</h3>
+                    <div class="date">March 1, 2024</div>
+                    <p>We're proud to announce our partnership with local animal shelters. This collaboration will help us provide better support for lost pets and their families.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Pet Finder Helper</h3>
+                    <p>Making pet finding easier and faster</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#team">Team</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; Pet Finder Helper. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
 </body>
-</html>
+</html> 

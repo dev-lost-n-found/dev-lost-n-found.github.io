@@ -3,9 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dev Lost & Found - Find Your Lost Development Items</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <h1>Welcome To "Lost & Found Myanmar".</h1>
+    <!-- Header Component -->
+    <div id="header-component"></div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Find Your Lost Development Items</h1>
+                    <p>Connect with the developer community to recover your lost items and help others find theirs.</p>
+                    <a href="#" class="cta-button">Get Started</a>
+                </div>
+                <div class="hero-image">
+                    <div class="carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-slide">
+                                <img src="./media/hero-1.png" alt="Lost and Found Platform">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="./media/hero-2.png" alt="Community Support">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="./media/hero-3.png" alt="Easy Recovery">
+                            </div>
+                        </div>
+                        <button class="carousel-button prev" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-button next" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+                        <div class="carousel-dots">
+                            <span class="carousel-dot active"></span>
+                            <span class="carousel-dot"></span>
+                            <span class="carousel-dot"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <h2>Why Choose Dev Lost & Found?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-search"></i>
+                        <h3>Easy Search</h3>
+                        <p>Quickly find your lost items with our advanced search functionality.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Community Support</h3>
+                        <p>Connect with a community of developers who help each other.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Secure Platform</h3>
+                        <p>Your data is protected with industry-standard security measures.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Share Section -->
+        <section class="share-section">
+            <div class="container">
+                <h3>Share Dev Lost & Found</h3>
+                <p>Help us grow our community by sharing with your network</p>
+                <div class="share-buttons">
+                    <a href="#" class="share-button facebook" target="_blank" rel="noopener">
+                        <i class="fab fa-facebook-f"></i>
+                        Share on Facebook
+                    </a>
+                    <a href="#" class="share-button twitter" target="_blank" rel="noopener">
+                        <i class="fab fa-twitter"></i>
+                        Share on Twitter
+                    </a>
+                    <a href="#" class="share-button linkedin" target="_blank" rel="noopener">
+                        <i class="fab fa-linkedin-in"></i>
+                        Share on LinkedIn
+                    </a>
+                    <a href="#" class="share-button whatsapp" target="_blank" rel="noopener">
+                        <i class="fab fa-whatsapp"></i>
+                        Share on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+    <div id="footer-component"></div>
+
+    <!-- Scripts -->
+    <script src="js/components.js"></script>
+    <script src="js/carousel.js"></script>
 </body>
 </html>
