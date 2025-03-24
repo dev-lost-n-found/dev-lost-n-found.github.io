@@ -466,7 +466,7 @@ main {
         height: 150px;
     }
     .web-view-page{
-        padding: 5rem 0;
+        padding: 0 !important;
     }
 }
 
