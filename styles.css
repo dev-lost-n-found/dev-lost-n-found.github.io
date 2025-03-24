@@ -29,136 +29,114 @@ body {
 
 /* Navigation Styles */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: var(--white);
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    padding: 1rem 0;
+    transition: all 0.3s ease;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+.navbar-brand {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--primary-color);
-    text-decoration: none;
+    color: var(--green) !important;
 }
 
-.logo i {
+.navbar-brand i {
     font-size: 1.8rem;
 }
 
-.nav-links {
-    display: flex;
-    align-items: center;
-}
-
-.nav-links ul {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links a {
-    color: var(--text-color);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    position: relative;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary-color);
-    transition: width 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: var(--primary-color);
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-.mobile-menu-toggle {
-    display: none;
-    background: none;
+.navbar-toggler {
     border: none;
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    cursor: pointer;
     padding: 0.5rem;
 }
 
-.menu-overlay {
-    display: none;
-    position: fixed;
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    background-image: none;
+    position: relative;
+    width: 24px;
+    height: 2px;
+    background-color: var(--green);
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: var(--green);
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before {
+    top: -8px;
+}
+
+.navbar-toggler-icon::after {
+    bottom: -8px;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background-color: transparent;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+    transform: rotate(45deg);
     top: 0;
-    left: 0;
-    right: 0;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+    transform: rotate(-45deg);
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
 }
 
-.menu-overlay.active {
-    display: block;
+.nav-link {
+    color: var(--dark-gray) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    position: relative;
+    transition: color 0.3s ease;
 }
 
-body.menu-open {
-    overflow: hidden;
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--green);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
 }
 
-/* Responsive Navigation */
-@media (max-width: 768px) {
-    .mobile-menu-toggle {
-        display: block;
-    }
+.nav-link:hover,
+.nav-link.active {
+    color: var(--green) !important;
+}
 
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 80%;
-        max-width: 300px;
-        height: 100vh;
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 80%;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
         background-color: var(--white);
-        padding: 2rem;
-        transition: right 0.3s ease;
-        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin-top: 1rem;
     }
 
-    .nav-links.active {
-        right: 0;
+    .nav-link {
+        padding: 0.8rem 1rem !important;
     }
 
-    .nav-links ul {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-
-    .nav-links a {
-        display: block;
-        padding: 0.5rem 0;
-    }
-
-    .nav-links a::after {
+    .nav-link::after {
         display: none;
     }
 }

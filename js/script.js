@@ -5,63 +5,14 @@ document.addEventListener('DOMContentLoaded', function () {
         copyrightYear.innerHTML = `&copy; ${new Date().getFullYear()} Pet Finder Helper. All rights reserved.`;
     }
 
-    // Mobile Menu Functionality
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (mobileMenuToggle && navLinks) {
-        const body = document.body;
-
-        // Create overlay element
-        const overlay = document.createElement('div');
-        overlay.className = 'menu-overlay';
-        document.body.appendChild(overlay);
-
-        function toggleMenu() {
-            navLinks.classList.toggle('active');
-            overlay.classList.toggle('active');
-            body.classList.toggle('menu-open');
-            const icon = mobileMenuToggle.querySelector('i');
-            if (icon) {
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
-            }
+    // Add active class to current nav link
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+            link.classList.add('active');
         }
-
-        // Toggle menu on button click
-        mobileMenuToggle.addEventListener('click', toggleMenu);
-        
-        // Close menu when clicking overlay
-        overlay.addEventListener('click', toggleMenu);
-
-        // Close menu when clicking a link
-        const menuLinks = navLinks.querySelectorAll('a');
-        menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (navLinks.classList.contains('active')) {
-                    toggleMenu();
-                }
-            });
-        });
-
-        // Close menu on window resize if open
-        let resizeTimer;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(() => {
-                if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
-                    toggleMenu();
-                }
-            }, 250);
-        });
-
-        // Close menu on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
-                toggleMenu();
-            }
-        });
-    }
+    });
 
     // Carousel Functionality
     const carousel = document.querySelector('.carousel');
@@ -74,20 +25,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let currentSlide = 0;
         const slideCount = slides.length;
-        let slideInterval;
 
         // Create dots dynamically
-        if (dotsContainer) {
-            slides.forEach((_, index) => {
-                const dot = document.createElement('div');
-                dot.classList.add('carousel-dot');
-                if (index === 0) dot.classList.add('active');
-                dot.addEventListener('click', () => goToSlide(index));
-                dotsContainer.appendChild(dot);
-            });
-        }
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('carousel-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
 
-        const dots = dotsContainer ? dotsContainer.querySelectorAll('.carousel-dot') : [];
+        const dots = dotsContainer.querySelectorAll('.carousel-dot');
 
         function updateDots() {
             dots.forEach((dot, index) => {
@@ -116,19 +64,16 @@ document.addEventListener('DOMContentLoaded', function () {
         if (prevButton) prevButton.addEventListener('click', prevSlide);
 
         // Auto-slide functionality
-        function startAutoSlide() {
-            slideInterval = setInterval(nextSlide, 5000);
-        }
-
-        function stopAutoSlide() {
-            clearInterval(slideInterval);
-        }
-
-        startAutoSlide();
+        let slideInterval = setInterval(nextSlide, 5000);
 
         // Pause auto-slide on hover
-        carousel.addEventListener('mouseenter', stopAutoSlide);
-        carousel.addEventListener('mouseleave', startAutoSlide);
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(nextSlide, 5000);
+        });
 
         // Touch support with passive event listeners
         let touchStartX = 0;
@@ -148,8 +93,11 @@ document.addEventListener('DOMContentLoaded', function () {
             const diff = touchStartX - touchEndX;
 
             if (Math.abs(diff) > swipeThreshold) {
-                if (diff > 0) nextSlide();
-                else prevSlide();
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
             }
         }
     }
