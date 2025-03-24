@@ -388,6 +388,9 @@ body {
         width: 150px;
         height: 150px;
     }
+    .web-view-page{
+        padding: 5rem 0;
+    }
 }
 
 @media (max-width: 480px) {
