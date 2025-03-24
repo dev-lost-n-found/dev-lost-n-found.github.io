@@ -5,6 +5,50 @@ document.addEventListener('DOMContentLoaded', function () {
         copyrightYear.innerHTML = `&copy; ${new Date().getFullYear()} Pet Finder Helper. All rights reserved.`;
     }
 
+    // Mobile Menu Functionality
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (mobileMenuToggle && navLinks) {
+        const body = document.body;
+
+        // Create overlay element
+        const overlay = document.createElement('div');
+        overlay.className = 'menu-overlay';
+        document.body.appendChild(overlay);
+
+        function toggleMenu() {
+            navLinks.classList.toggle('active');
+            overlay.classList.toggle('active');
+            body.classList.toggle('menu-open');
+            const icon = mobileMenuToggle.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            }
+        }
+
+        mobileMenuToggle.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking a link
+        const menuLinks = navLinks.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // Close menu on window resize if open
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
+    }
+
     // Carousel Functionality
     const carousel = document.querySelector('.carousel');
     if (carousel) {
@@ -39,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function goToSlide(index) {
             currentSlide = index;
-            container.style.transform = `translateX(-${currentSlide * 100}%)`; // Adjust based on actual slide width
+            container.style.transform = `translateX(-${currentSlide * 25}%)`;
             updateDots();
         }
 
@@ -72,18 +116,18 @@ document.addEventListener('DOMContentLoaded', function () {
         carousel.addEventListener('mouseenter', stopAutoSlide);
         carousel.addEventListener('mouseleave', startAutoSlide);
 
-        // Touch support for swiping
+        // Touch support with passive event listeners
         let touchStartX = 0;
         let touchEndX = 0;
 
         carousel.addEventListener('touchstart', (e) => {
             touchStartX = e.touches[0].clientX;
-        });
+        }, { passive: true });
 
         carousel.addEventListener('touchend', (e) => {
             touchEndX = e.changedTouches[0].clientX;
             handleSwipe();
-        });
+        }, { passive: true });
 
         function handleSwipe() {
             const swipeThreshold = 50;
@@ -109,11 +153,14 @@ document.addEventListener('DOMContentLoaded', function () {
             const message = formData.get('message');
 
             // Construct email content
-            const emailBody = `Name: ${name}
-                        Email: ${email}
-                        Subject: ${title}
-                        Message:
-                        ${message}`;
+            const emailBody = `
+Name: ${name}
+Email: ${email}
+Subject: ${title}
+
+Message:
+${message}
+            `;
 
             // Generate mailto link
             const mailtoLink = `mailto:lostandfound.mm.org@gmail.com?subject=${encodeURIComponent(`Enquiry from ${name}: ${title}`)}&body=${encodeURIComponent(emailBody)}`;
@@ -128,5 +175,5 @@ document.addEventListener('DOMContentLoaded', function () {
             contactForm.reset();
         });
     }
-    
+
 });
