@@ -769,7 +769,7 @@ body {
 }
 
 /* Mobile Menu Styles */
-.mobile-menu-toggle {
+/* .mobile-menu-toggle {
     display: none;
     background: none;
     border: none;
@@ -832,4 +832,4 @@ body {
     body.menu-open {
         overflow: hidden;
     }
-}
+} */

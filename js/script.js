@@ -5,47 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
         copyrightYear.innerHTML = `&copy; ${new Date().getFullYear()} Pet Finder Helper. All rights reserved.`;
     }
 
-    // Mobile Menu Functionality
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    const body = document.body;
-
-    if (mobileMenuToggle && navLinks) {
-        const overlay = document.createElement('div');
-        overlay.className = 'menu-overlay';
-        document.body.appendChild(overlay);
-
-        function toggleMenu() {
-            navLinks.classList.toggle('active');
-            overlay.classList.toggle('active');
-            body.classList.toggle('menu-open');
-            const icon = mobileMenuToggle.querySelector('i');
-            if (icon) {
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
-            }
-        }
-
-        mobileMenuToggle.addEventListener('click', toggleMenu);
-        overlay.addEventListener('click', toggleMenu);
-
-        // Close menu when clicking a link
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (navLinks.classList.contains('active')) {
-                    toggleMenu();
-                }
-            });
-        });
-
-        // Close menu on window resize if open
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
-                toggleMenu();
-            }
-        });
-    }
-
     // Carousel Functionality
     const carousel = document.querySelector('.carousel');
     if (carousel) {
