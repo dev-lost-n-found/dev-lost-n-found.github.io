@@ -433,6 +433,9 @@ main {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .navbar-brand span {
+        display: none;
+    }
     .hero .container,
     .about-content,
     .contact-content {
