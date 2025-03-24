@@ -54,6 +54,7 @@ body {
 
 .navbar-toggler-icon {
     background-image: none !important;
+    display: inline-flex;
     position: relative;
     width: 24px;
     height: 2px;
