@@ -28,7 +28,10 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
+        // Toggle menu on button click
         mobileMenuToggle.addEventListener('click', toggleMenu);
+        
+        // Close menu when clicking overlay
         overlay.addEventListener('click', toggleMenu);
 
         // Close menu when clicking a link
@@ -42,8 +45,19 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // Close menu on window resize if open
+        let resizeTimer;
         window.addEventListener('resize', () => {
-            if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+                    toggleMenu();
+                }
+            }, 250);
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
                 toggleMenu();
             }
         });
