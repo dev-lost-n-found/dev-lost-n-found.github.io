@@ -53,7 +53,7 @@ body {
 }
 
 .navbar-toggler-icon {
-    background-image: none;
+    background-image: none !important;
     position: relative;
     width: 24px;
     height: 2px;
